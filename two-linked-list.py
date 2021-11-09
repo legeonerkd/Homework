@@ -49,8 +49,9 @@ class TwoLinkedList:
                     node.next = cur
                     node.prev = prev
                     prev.next = node
-                    return
-                self.append(node)
+                else:
+                    self.append(node)
+                return
                     
     def remove_tail(self):
         if self.tail is None:
