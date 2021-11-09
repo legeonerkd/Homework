@@ -23,6 +23,8 @@ class TwoLinkedList:
         self.tail = node
 
     def insert(self, node: TwoLinkedNode, pos: int) -> None:
+        if pos < -1:
+            raise IndexError()
         if self.head is None:
             self.head = node
             self.tail = node
@@ -115,7 +117,10 @@ lst = TwoLinkedList()
 try:
     lst.remove_by_pos(2)
 except EmptyListError:
-    print('What the fuck')
+    print('Empty list')
+except IndexError:
+    print('Incorrect index')
+
 
 
 
