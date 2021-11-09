@@ -16,12 +16,11 @@ class TwoLinkedList:
         self.tail = None
 
     def append(self, node: TwoLinkedNode) -> None:
-        if self.head is not None:
-            self.tail.next = node
-            node.prev = self.tail
-            self.tail = node
-        else:
+        if self.head is None:
             return
+        self.tail.next = node
+        node.prev = self.tail
+        self.tail = node
 
     def insert(self, node: TwoLinkedNode, pos: int) -> None:
         if self.head is None:
