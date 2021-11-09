@@ -57,9 +57,10 @@ class TwoLinkedList:
         if self.tail is None:
             raise EmptyListError()
         self.tail = self.tail.prev
-        self.tail.next = None
         if self.tail is None:
             self.head = None
+        else:
+            self.tail.next = None
            
     def remove_by_pos(self, pos: int):
         if pos < -1:
