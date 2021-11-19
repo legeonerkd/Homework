@@ -13,7 +13,7 @@ class BinaryTree:
         if root is None:
             root = node
         else:
-            if root.val <= node.val:
+            if root.val < node.val:
                 if root.left is None:
                     root.left = node
                 else: 
