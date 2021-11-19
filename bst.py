@@ -12,17 +12,17 @@ class BinaryTree:
     def insert(self, root: TreeNode, node: TreeNode) -> TreeNode:
         if root is None:
             root = node
-        else:
-            if root.val < node.val:
-                if root.left is None:
-                    root.left = node
-                else: 
-                    root.left = self.insert(root.left, node)
-            else:
-                if root.right is None:
+            return
+        if root.val < node.val:
+            if root.left is None:
+                root.left = node
+            else: 
+                root.left = self.insert(root.left, node)
+                return
+            if root.right is None:
                     root.right = node
-                else:
-                    root.right = self.insert(root.right, node)
+            else:
+                root.right = self.insert(root.right, node)
 
             return root
 
