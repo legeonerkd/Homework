@@ -11,41 +11,28 @@ class BinaryTree:
     
     def insert(self, root: TreeNode, node: TreeNode) -> TreeNode:
         if root is None:
-            root = node
-            return
-        if root.val < node.val:
-            if root.left is None:
-                root.left = node
-            else: 
-                root.left = self.insert(root.left, node)
-                return
-            if root.right is None:
-                    root.right = node
-            else:
-                root.right = self.insert(root.right, node)
+            return node
+        if node.val < root.val:
+            root.left = self.insert(root.left, node)        
+        else:
+            root.right = self.insert(root.right, node)
+        return root
 
-            return root
-
-    
-    def inorder(self, root):
+    def inorder(self, root) -> str:
         if root is None:
-            return
-        self.inorder(root.left)
-        print (root.val)
-        self.inorder(root.right)
-
-
+            return ''
+        return '%s %s %s' % (self.inorder(root.left), root.val, self.inorder(root.right))
+        
 
 bst = BinaryTree()
-root = TreeNode(10)
-bst.insert(root, TreeNode(8))
-bst.insert(root, TreeNode(11))
-bst.insert(root, TreeNode(9))
-bst.insert(root, TreeNode(-1))
-bst.insert(root, TreeNode(100))
-bst.insert(root, TreeNode(-5))
-print(bst.inorder(root))
-
+# root insert
+bst.root = bst.insert(bst.root, TreeNode(10))
+bst.root = bst.insert(bst.root, TreeNode(8))
+bst.root = bst.insert(bst.root, TreeNode(9))
+bst.root = bst.insert(bst.root, TreeNode(-1))
+bst.root = bst.insert(bst.root, TreeNode(100))
+bst.root = bst.insert(bst.root, TreeNode(-5))
+print(bst.inorder(bst.root))
 
 
 
